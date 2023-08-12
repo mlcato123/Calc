@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class Calculator {
-    private static boolean its_an_arabic_numbers = true;
+    private static boolean arabic_numbers = true;
     private static String[] pars(String input) {
         String[] parsed_input = input.split(" ");
         if (parsed_input.length > 5 || parsed_input.length < 3) {
@@ -28,7 +28,7 @@ public class Calculator {
                 value1 = Integer.parseInt(parsed_input[0]);
                 value2 = Integer.parseInt(parsed_input[2]);
             } catch (NumberFormatException e) {
-                its_an_arabic_numbers = false;
+                arabic_numbers = false;
                 System.out.println("Неверный формат ввода данных.");
             }
             if (value1 > 10 || value2 > 10){
@@ -48,7 +48,7 @@ public class Calculator {
 
             }
 
-            if (its_an_arabic_numbers) {
+            if (arabic_numbers) {
                     values = new Arabic(value1, value2);
                 } else {
                     break;
@@ -61,7 +61,7 @@ public class Calculator {
                 case "/": values.div();break;
             }
 
-            if (its_an_arabic_numbers) {
+            if (arabic_numbers) {
                 System.out.println("Ответ: " + values.getResult());
             }
             System.out.println();
